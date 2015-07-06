@@ -22,6 +22,10 @@ syntax on
 set history=50
 set number
 set mouse=a
+set hlsearch
+set autoindent
+set incsearch
+set smarttab
 
 " NERDTree
 map <Leader>t :NERDTreeToggle<CR>
