@@ -15,6 +15,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'bling/vim-airline'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -30,6 +31,7 @@ set mouse=r
 set hlsearch
 set incsearch
 
+set laststatus=2
 set autoindent
 set smarttab
 set smartindent
@@ -48,7 +50,6 @@ highlight PmenuSel ctermfg=4 ctermbg=0
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " vim-airline
-set laststatus=2
 let g:airline_powerline_fonts=1
 
 " NERDTree
