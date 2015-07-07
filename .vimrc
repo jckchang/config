@@ -23,7 +23,11 @@ call vundle#end()            " required
 filetype plugin indent on
 syntax on
 
+set list
+set listchars=tab:>-,trail:-
+set expandtab
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set history=50
 set number
