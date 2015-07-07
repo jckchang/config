@@ -23,22 +23,41 @@ call vundle#end()            " required
 filetype plugin indent on
 syntax on
 
+" show spaces and tabs
 set list
 set listchars=tab:>-,trail:-
+
+" tab setting
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set smarttab
+
+" show the cursor position all the time
+set ruler
+
+" show current mode
+set showmode
+
+" indent
+set autoindent
+set smartindent
+
+set wrap
 set history=50
 set number
 set mouse=r
+
+" search highlight and enhance
 set hlsearch
 set incsearch
 
+" show unfinished cmd
+set showcmd
+
+" always show information, for vim-powerline working
 set laststatus=2
-set autoindent
-set smarttab
-set smartindent
 
 " autocomplete
 set omnifunc=syntaxcomplete#Complete
@@ -67,3 +86,9 @@ let g:tagbar_autofocus=1
 
 " encoding
 set encoding=utf-8
+
+" press enter to tabedit file in ctrlp
+let g:ctrlp_prompt_mappings = {
+\ 'AcceptSelection("e")': [],
+\ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+\ }
