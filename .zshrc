@@ -83,7 +83,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Personal setting
+PATH="${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+TZ="Asia/Taipei"
+LC_ALL='zh_TW.UTF-8'
+
 export LESSCHARSET="utf-8"
 export EDITOR='vim'
 
-alias dev6='ssh dev6.srv.kkcorp'
