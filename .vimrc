@@ -16,6 +16,7 @@ Bundle 'bling/vim-airline'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -87,8 +88,18 @@ let g:tagbar_autofocus=1
 " encoding
 set encoding=utf-8
 
+" set syntastic to passive mode
+let g:syntastic_mode_map = {
+\ 'mode': 'passive',
+\ }
+
 " press enter to tabedit file in ctrlp
 let g:ctrlp_prompt_mappings = {
 \ 'AcceptSelection("e")': [],
 \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
 \ }
+
+" High light unwanted spaces in end of line
+highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
+autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ |endif
+autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
