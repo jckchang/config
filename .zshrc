@@ -49,7 +49,7 @@ ZSH_THEME="afowler"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git node npm history-substring-search)
 
 # User configuration
 
@@ -90,4 +90,3 @@ LC_ALL='zh_TW.UTF-8'
 
 export LESSCHARSET="utf-8"
 export EDITOR='vim'
-

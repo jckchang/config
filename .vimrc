@@ -23,6 +23,9 @@ call vundle#end()            " required
 
 filetype plugin indent on
 syntax on
+" check if the theme is in ~/.vim/colors
+colorscheme molokai
+set t_Co=256
 
 " show spaces and tabs
 set list
