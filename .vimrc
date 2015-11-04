@@ -1,31 +1,35 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
+" load vundle
+set nocompatible
+filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/Vundle.vim'
-
-" My Bundles
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'bling/vim-airline'
-Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
+Plugin 'VundleVim/Vundle.vim'
+" Plugin 'gmarik/Vundle.vim'
+" My Plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'bling/vim-airline'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-
 filetype plugin indent on
+
 syntax on
-" check if the theme is in ~/.vim/colors
 colorscheme molokai
+" Access colors present in 256 colorspace
+let base16colorspace=256
+" Explicitly tell vim that the terminal supports 256 colors
 set t_Co=256
+
+" faster redrawing
+set ttyfast
 
 " show spaces and tabs
 set list
@@ -33,7 +37,7 @@ set listchars=tab:>-,trail:-
 
 " tab setting
 set expandtab
-set tabstop=4
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set smarttab
@@ -52,10 +56,12 @@ set wrap
 set history=50
 set number
 set mouse=r
+set backspace=2
 
 " search highlight and enhance
 set hlsearch
 set incsearch
+highlight Search ctermfg=black ctermbg=blue
 
 " show unfinished cmd
 set showcmd
@@ -78,10 +84,16 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " vim-airline
 let g:airline_powerline_fonts=1
+let g:airline_theme='tomorrow'
 
 " NERDTree
 map <Leader>t :NERDTreeToggle<CR>
 let NERDTreeHightlightCursorline=1
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+
+" CtrlP
+let g:ctrlp_dotfiles=1
 
 " tagbar
 map <leader>l :TagbarToggle<CR>
@@ -91,11 +103,6 @@ let g:tagbar_autofocus=1
 " encoding
 set encoding=utf-8
 
-" set syntastic to passive mode
-let g:syntastic_mode_map = {
-\ 'mode': 'passive',
-\ }
-
 " press enter to tabedit file in ctrlp
 let g:ctrlp_prompt_mappings = {
 \ 'AcceptSelection("e")': [],
@@ -104,5 +111,5 @@ let g:ctrlp_prompt_mappings = {
 
 " High light unwanted spaces in end of line
 highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
-autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ |endif
+autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
 autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
