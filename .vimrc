@@ -16,6 +16,9 @@ Plugin 'bling/vim-airline'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +47,8 @@ set smarttab
 
 " show the cursor position all the time
 set ruler
+set cursorline
+hi CursorLine term=bold cterm=bold ctermbg=234
 
 " show current mode
 set showmode
@@ -62,6 +67,7 @@ set backspace=2
 set hlsearch
 set incsearch
 highlight Search ctermfg=black ctermbg=blue
+highlight Folded ctermbg=018
 
 " show unfinished cmd
 set showcmd
@@ -113,3 +119,10 @@ let g:ctrlp_prompt_mappings = {
 highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
 autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
 autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
+
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_standard_exec = 'semistandard'
+let g:syntastic_javascript_standard_generic = 1
+let g:syntastic_always_populate_loc_list = 1
